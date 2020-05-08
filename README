@@ -1,0 +1,42 @@
+This game is played on a text interface (not a GUI)
+
+board_t * makeBoard(int w, int h, int numMines)
+int countMines(board_t * b, int x, int y)
+int checkWin(board_t * b)
+void freeBoard(board_t * b)
+
+A brief description of functions:
+
+ - makeBoard: this function should malloc's and initializes a board_t
+   representing the board. The parameters specify the width
+   and height of the board, as well as the number of mines.
+   This function fills in all squares on the board with
+   UNKNOWN, then call addRandomMine an appropriate number of times
+   (i.e., numMines) to "randomly" place mines on the board.
+   The mine generation is pseudo random and will not
+   change if you re-run the program multiple times with the same
+   parameters.
+
+ - countMines: this funciton takes a board_t, and an (x,y) coordinate.
+   It counts the mines in the 8 squares around that (x,y) 
+   coordinate, and returns that count.
+
+ - checkWin: this funciton takes a board_t and see if the game has
+   been won.  The game is won when no squares are UNKNOWN. ReturnS 0
+   if the game has not been won, 1 if it has.
+
+ - freeBoard: This function takes a board_t and frees all memory
+   associated with it (including the array inside of it).  That is,
+   freeBoard undoes all the allocations made by a call to makeBoard.
+
+There are a few differences in game play from the "standard" game:
+
+ - You select a square by entering its x (column) and y (row) coordinate.
+   The x coordinates are listed across the top and the y are listed
+   down the left side to reduce counting.
+
+ - The game will automatically figure out the "obvious" squares:
+   both mines and non-mined spaces.  It will reveal these too you 
+   as soon as it considers them trivial to figure out.  
+ 
+ - You cannot manually mark a square that you suspect has a mine
